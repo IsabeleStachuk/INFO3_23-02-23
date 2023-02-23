@@ -8,15 +8,15 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button buttonIrCadastro;
+    Button buttonCadastroCli;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        buttonIrCadastro=findViewById(R.id.buttonIrCadastro);
-        buttonIrCadastro.setOnClickListener(new View.OnClickListener() {
+        buttonCadastroCli=findViewById(R.id.buttonCadastroCli);
+        buttonCadastroCli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
                 Intent in = new Intent(MainActivity.this, TelaActivity.class);
