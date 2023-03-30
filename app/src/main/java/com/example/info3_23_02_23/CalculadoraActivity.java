@@ -24,13 +24,13 @@ public class CalculadoraActivity extends AppCompatActivity {
         txtNumero2 = findViewById(R.id.txtNumero2);
         tvResultado = findViewById(R.id.tvResultado);
         bEnviar = findViewById(R.id.bEnviar);
-        bEnviar.setOnclickListener(new View.OnClickListener(){
+        bEnviar.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v){
 
             }
-        }
+        });
 
         }
 

@@ -14,12 +14,23 @@ public class MainActivity extends AppCompatActivity {
     Button buttonComprar;
     Button buttonReservar;
     Button buttonAjuda;
+    Button buttonLocadora;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        buttonLocadora=findViewById(R.id.buttonLocadora);
+        buttonLocadora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                Intent in = new Intent(MainActivity.this, LocadoraActivity.class);
+                startActivity(in);
+
+            }
+        });
 
         buttonCadastroCli=findViewById(R.id.buttonCadastroCli);
         buttonCadastroCli.setOnClickListener(new View.OnClickListener() {
