@@ -20,7 +20,7 @@ public class LocadoraActivity extends AppCompatActivity {
         alugarKwid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(LocadoraActivity.this, SegundaTela.class);
+                Intent in = new Intent(LocadoraActivity.this, TerceiraTela.class);
                 startActivity(in);
 
             }
@@ -29,7 +29,7 @@ public class LocadoraActivity extends AppCompatActivity {
         alugarBYD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(LocadoraActivity.this, TerceiraTela.class);
+                Intent in = new Intent(LocadoraActivity.this, SegundaTela.class);
                 startActivity(in);
 
             }

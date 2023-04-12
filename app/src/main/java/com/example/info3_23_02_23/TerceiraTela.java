@@ -2,6 +2,7 @@ package com.example.info3_23_02_23;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,10 +11,10 @@ import android.widget.TextView;
 
 public class TerceiraTela extends AppCompatActivity {
     private EditText numberDias;
-    private EditText textValordoAluguel;
+    Button buttonVoltarSeg;
     Button buttonValorTotal;
     double num1;
-    double num2 = 600;
+    double num2 = 500;
     TextView textResult;
     double result;
 
@@ -30,15 +31,20 @@ public class TerceiraTela extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 num1 = Double.parseDouble(numberDias.getText().toString());
-                num2 = Double.parseDouble(textValordoAluguel.getText().toString());
                 textResult = findViewById(R.id.textResult);
                 result = num1*num2;
                 textResult.setText(String.valueOf(result));
 
             }
         });
+        buttonVoltarSeg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(TerceiraTela.this, LocadoraActivity.class);
+                startActivity(in);
 
-
+            }
+        });
 
     }
 }
