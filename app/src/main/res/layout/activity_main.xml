@@ -7,11 +7,11 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/buttonCadastroCli"
+        android:id="@+id/buttonCalculadora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
-        android:text="Cadastro Cliente"
+        android:text="Calculadora"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
         android:text="Consultar Livro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCadastroCli" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonCalculadora" />
 
     <Button
         android:id="@+id/buttonEmprestar"
@@ -71,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Livraria"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCadastroCli"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCalculadora"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

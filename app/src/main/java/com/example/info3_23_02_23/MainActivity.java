@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button buttonCadastroCli;
+    Button buttonCalculadora;
     Button buttonConsultar;
     Button buttonEmprestar;
     Button buttonComprar;
@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        buttonCadastroCli=findViewById(R.id.buttonCadastroCli);
-        buttonCadastroCli.setOnClickListener(new View.OnClickListener() {
+        buttonCalculadora=findViewById(R.id.buttonCalculadora);
+        buttonCalculadora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
-                Intent in = new Intent(MainActivity.this, TelaActivity.class);
+                Intent in = new Intent(MainActivity.this, CalculadoraActivity .class);
                 startActivity(in);
 
             }
