@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         buttonCalculadora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
-                Intent in = new Intent(MainActivity.this, CalculadoraActivity .class);
+                Intent in = new Intent(MainActivity.this, CalculadoraActivity.class);
                 startActivity(in);
 
             }
