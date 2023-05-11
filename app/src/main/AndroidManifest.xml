@@ -21,9 +21,6 @@
             android:name=".LocadoraActivity"
             android:exported="false" />
         <activity
-            android:name=".CalculadoraActivity"
-            android:exported="false" />
-        <activity
             android:name=".AjudaActivity"
             android:exported="false" />
         <activity

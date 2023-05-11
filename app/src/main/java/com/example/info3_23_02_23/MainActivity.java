@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button buttonCalculadora;
     Button buttonConsultar;
     Button buttonEmprestar;
     Button buttonComprar;
@@ -32,15 +31,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        buttonCalculadora=findViewById(R.id.buttonCalculadora);
-        buttonCalculadora.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                Intent in = new Intent(MainActivity.this, CalculadoraActivity.class);
-                startActivity(in);
-
-            }
-        });
 
         buttonConsultar=findViewById(R.id.buttonConsultar);
         buttonConsultar.setOnClickListener(new View.OnClickListener() {
