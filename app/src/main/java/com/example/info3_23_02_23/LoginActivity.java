@@ -22,7 +22,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText etNomeUsuario;
     EditText etSenhaUsuario;
     EditText etCodigoUsuario;
-    ListView lUsuario;
 
     ArrayAdapter usuarioArrayAdapter;
 
