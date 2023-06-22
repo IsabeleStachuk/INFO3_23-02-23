@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         buttonLocadora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
-                Intent in = new Intent(MainActivity.this, LocadoraActivity.class);
+                Intent in = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(in);
 
             }
