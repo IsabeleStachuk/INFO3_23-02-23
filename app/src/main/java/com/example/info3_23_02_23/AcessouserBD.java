@@ -53,6 +53,7 @@ public class AcessouserBD extends SQLiteOpenHelper {
         db.close();
 
         //-1 indica que nenhuma linha foi inserida na referida tabela
+
         return inserirSucedido != -1;
 
 

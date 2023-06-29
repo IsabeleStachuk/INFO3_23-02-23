@@ -2,15 +2,13 @@ package com.example.info3_23_02_23;
 
 public class Usuario {
 
-    public Usuario(int idUsuario, String nomeUsuario, int senhaUsuario) {
+    public Usuario(int idUsuario, String nomeUsuario, String senhaUsuario) {
         this.setIdUsuario(idUsuario);
         this.setNomeUsuario(nomeUsuario);
         this.setSenhaUsuario(senhaUsuario);
     }
 
-
-
-    public Usuario(String nomeUsuario, int senhaUsuario) {
+    public Usuario(String nomeUsuario, String senhaUsuario) {
         this.nomeUsuario = nomeUsuario;
         this.senhaUsuario = senhaUsuario;
     }
@@ -23,7 +21,7 @@ public class Usuario {
 
     private int idUsuario;
     private String nomeUsuario;
-    private int senhaUsuario;
+    private String senhaUsuario;
 
 
 
@@ -43,11 +41,11 @@ public class Usuario {
         this.nomeUsuario = nomeUsuario;
     }
 
-    protected int getSenhaUsuario() {
+    protected String getSenhaUsuario() {
         return senhaUsuario;
     }
 
-    protected void setSenhaUsuario(int senhaUsuario) {
+    protected void setSenhaUsuario(String senhaUsuario) {
         this.senhaUsuario = senhaUsuario;
     }
 
