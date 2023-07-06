@@ -24,11 +24,14 @@ public class AcessouserBD extends SQLiteOpenHelper {
         super(context, "ClienteBD", null, 1);
     }
 
+    //É chamado na primeira vez que o banco de Dados(BD) é acessado.
+    //Usado também para a criação do banco de dados
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         String statement = "CREATE TABLE " + TABELA_USUARIO +
                 " (" + USUARIO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + USUARIO_NOME + " TEXT, " + USUARIO_SENHA + " INT)";
+                + USUARIO_NOME + " TEXT, " + USUARIO_SENHA + " TEXT)";
 
 
         db.execSQL(statement);
@@ -70,7 +73,7 @@ public class AcessouserBD extends SQLiteOpenHelper {
         contentValues.put(USUARIO_ID, usuario.getIdUsuario());
 
 
-        long atualizarSucedido = db.update(TABELA_USUARIO, contentValues, USUARIO_ID + "=" + usuario.getIdUsuario(), null);//nullColumnHack é null quando deseja-se adicionar uma linha não nula. Quando intencionalmente deseja inserir uma linha vazia, é necessário informar o valor de uma coluna da tabela usada. No caso da tabela usuário, pode ser nome ou idade.
+        long atualizarSucedido = db.update(TABELA_USUARIO, contentValues, USUARIO_ID + "=" + usuario.getIdUsuario(), null);//nullColumnHack é null quando deseja-se adicionar uma linha não nula. Quando intencionalmente deseja inserir uma linha vazia, é necessário informar o valor de uma coluna da tabela usada. No caso da tabela usuário, pode ser nome ou senha.
         db.close();//Sempre fechar o banco de dados após uso.
 
         //-1 indica que nenhuma linha foi inserida na referida tabela
@@ -99,10 +102,10 @@ public class AcessouserBD extends SQLiteOpenHelper {
                 do {
                     int usuarioCod = cursor.getInt(0);//A primeira coluna da tabela usuário é código
                     String usuarioNome = cursor.getString(1);
-                    int usuarioIdade = cursor.getInt(2);
+                    String usuarioSenha = cursor.getString(2);
 
 
-                    Usuario usuario = new Usuario(usuarioCod, usuarioNome, usuarioIdade);//Sempre confira a ordem do construtor
+                    Usuario usuario = new Usuario(usuarioCod, usuarioNome, usuarioSenha);//Sempre confira a ordem do construtor
                     listaUsuarios.add(usuario);//Adiciona o objeto usuário a lista.
                 } while (cursor.moveToNext());//Enquanto houver um próximo registro (moveToNext)
             } else {
