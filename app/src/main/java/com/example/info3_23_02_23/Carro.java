@@ -1,22 +1,22 @@
 package com.example.info3_23_02_23;
 
-public class Usuario {
+public class Carro {
 
-    public Usuario(int idCarro, String nomeCarro, String placaCarro) {
+    public Carro(int idCarro, String nomeCarro, String placaCarro) {
         this.setIdCarro(idCarro);
         this.setNomeCarro(nomeCarro);
         this.setPlacaCarro(placaCarro);
     }
 
-    public Usuario(String nomeCarro, String placaCarro) {
+    public Carro(String nomeCarro, String placaCarro) {
         this.nomeCarro = nomeCarro;
         this.placaCarro = placaCarro;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "idCarro=" + idCarro + ", nomeCarro='" + nomeCarro + '\'' + ", placaCarro=" + placaCarro + '}';
-        //"Usuario{idUsuario=1, nomeUsuario=Ronan, idadeUsuario=30}"
+        return "Carro{" + "idCarro=" + idCarro + ", nomeCarro='" + nomeCarro + '\'' + ", placaCarro=" + placaCarro + '}';
+        //"Usuario{idUsuario=1, nomeUsuario=b, senhaUsuario=1234}"
     }
 
     private int idCarro;

@@ -16,15 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 public class LoginActivity extends AppCompatActivity {
 
-    Button btAddUsuario;
-    Button btListUsuario;
-    Button btAtualizarUsuario;
-    EditText etNomeUsuario;
-    EditText etSenhaUsuario;
-    EditText etCodigoUsuario;
-    ListView lUsuario;
-    ArrayAdapter usuarioArrayAdapter;
-
+    Button btAddCarro;
+    Button btListCarro;
+    Button btAtualizarCarro;
+    EditText etNomeCarro;
+    EditText etPlacaCarro;
+    EditText etCodigoCarro;
+    ListView lCarro;
+    ArrayAdapter carroArrayAdapter;
     AcessoBD acessoBD;
 
 
@@ -36,32 +35,32 @@ public class LoginActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        btAddUsuario = findViewById(R.id.btAddUsuario);
-        btListUsuario = findViewById(R.id.btListUsuario);
-        btAtualizarUsuario = findViewById(R.id.btAtualizarUsuario);
-        etNomeUsuario = findViewById(R.id.etNomeUsuario);
-        etSenhaUsuario = findViewById(R.id.etSenhaUsuario);
-        etCodigoUsuario = findViewById(R.id.etCodigoUsuario);
-        lUsuario = findViewById(R.id.lUsuario);
+        btAddCarro = findViewById(R.id.btAddCarro);
+        btListCarro = findViewById(R.id.btListCarro);
+        btAtualizarCarro = findViewById(R.id.btAtualizarCarro);
+        etNomeCarro = findViewById(R.id.etNomeCarro);
+        etPlacaCarro = findViewById(R.id.etPlacaCarro);
+        etCodigoCarro = findViewById(R.id.etCodigoCarro);
+        lCarro = findViewById(R.id.lCarro);
 
         acessoBD = new AcessoBD(LoginActivity.this);
-        mostrarUsuariosNaListView(acessoBD);
+        mostrarCarrosNaListView(acessoBD);
 
-        btAddUsuario.setOnClickListener(new View.OnClickListener() {
+        btAddCarro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //aqui acontece a ação
 
                 //Declaração de um objeto usuário da (nossa) classe Usuário
-                Usuario usuario = null;//null para inicializar
+                Carro carro = null;//null para inicializar
 
                 //Bloco try para "tentar" executar as ações esperadas. O catch é para "remediar" ou "avisar" algo que não foi realizado no bloco try como esperado.
                 try {
-                    usuario = new Usuario(-1,
-                            etNomeUsuario.getText().toString(),
-                            etSenhaUsuario.getText().toString());
-                    boolean sucesso = acessoBD.adicionarUsuario(usuario);
-                    mostrarUsuariosNaListView(acessoBD);
+                    carro = new Carro(-1,
+                            etNomeCarro.getText().toString(),
+                            etPlacaCarro.getText().toString());
+                    boolean sucesso = acessoBD.adicionarCarro(carro);
+                    mostrarCarrosNaListView(acessoBD);
                     Toast.makeText(LoginActivity.this, "Sucesso:" + sucesso, Toast.LENGTH_SHORT).show();
                 } catch (NumberFormatException e) {
                     Toast.makeText(LoginActivity.this, "Erro na conversão de uma String para int: Idade não corresponde a número!", Toast.LENGTH_LONG).show();
@@ -69,9 +68,11 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Erro na criação do usuário!", Toast.LENGTH_LONG).show();
                 }
             }
+
+
         });
 
-        btListUsuario.setOnClickListener(new View.OnClickListener() {
+        btListCarro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //aqui acontece a ação
@@ -83,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                     //Também adicionar a variável aqui em MainActivity e associar ela ao componente com findViewById.
                     lvUsuarios.setAdapter(usuarioArrayAdapter);*/
 
-                mostrarUsuariosNaListView(acessoBD);
+                mostrarCarrosNaListView(acessoBD);
 
                 Toast.makeText(LoginActivity.this, "Lista de usuários preenchida com sucesso", Toast.LENGTH_SHORT).show();
 
@@ -95,56 +96,60 @@ public class LoginActivity extends AppCompatActivity {
         /**
          * Evento de click na lista de usuários na intenção de excluir o usuário clicado.
          */
-        lUsuario.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lCarro.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 System.out.println("Captou click na lista!");
-                Usuario usuarioClicado = (Usuario) parent.getItemAtPosition(position);
-                boolean excluiu = acessoBD.excluirUsuario(usuarioClicado);
+                Carro carroClicado = (Carro) parent.getItemAtPosition(position);
+                boolean excluiu = acessoBD.excluirUsuario(carroClicado);
 
-                mostrarUsuariosNaListView(acessoBD);
+                mostrarCarrosNaListView(acessoBD);
 
-                Toast.makeText(LoginActivity.this, "Usuário excluído(" + excluiu + "):" + usuarioClicado.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Usuário excluído(" + excluiu + "):" + carroClicado.toString(), Toast.LENGTH_SHORT).show();
 
 
             }
         });
 
-        btAtualizarUsuario.setOnClickListener(new View.OnClickListener() {
+        btAtualizarCarro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //aqui acontece a ação
 
                 //Declaração de um objeto usuário da (nossa) classe Usuário
-                Usuario usuario = null;//null para inicializar
+                Carro carro = null;//null para inicializar
 
                 //Bloco try para "tentar" executar as ações esperadas. O catch é para "remediar" ou "avisar" algo que não foi realizado no bloco try como esperado.
                 try {
-                    usuario = new Usuario(Integer.parseInt(etCodigoUsuario.getText().toString()), etNomeUsuario.getText().toString(), etSenhaUsuario.getText().toString());
+                    carro = new Carro(Integer.parseInt(etCodigoCarro.getText().toString()), etNomeCarro.getText().toString(), etPlacaCarro.getText().toString());
 
-                    boolean sucesso = acessoBD.atualizarUsuario(usuario);
+                    boolean sucesso = acessoBD.atualizarCarro(carro);
 
-                    mostrarUsuariosNaListView(acessoBD);
+                    mostrarCarrosNaListView(acessoBD);
                     Toast.makeText(LoginActivity.this, "Sucesso:" + sucesso, Toast.LENGTH_SHORT).show();
 
                 } catch (NumberFormatException e) {
                     Toast.makeText(LoginActivity.this, "Erro na conversão de uma String para int: Idade não corresponde a número!", Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     Toast.makeText(LoginActivity.this, "Erro na criação do usuário!", Toast.LENGTH_LONG).show();
-                    usuario = new Usuario(-1, "erro", "erro");
+                    carro = new Carro(-1, "erro", "erro");
                 }
 
             }
         });
 
 
+
+
     }
 
-    private void mostrarUsuariosNaListView(AcessoBD acessouserBD) {
-        usuarioArrayAdapter = new ArrayAdapter<Usuario>(LoginActivity.this,
-                android.R.layout.simple_list_item_1, acessoBD.getListaUsuarios());//Dentro de <> está o tipo de objeto que será adicionado na lista
-        lUsuario.setAdapter(usuarioArrayAdapter);
+
+
+    private void mostrarCarrosNaListView(AcessoBD acessoBD) {
+        carroArrayAdapter = new ArrayAdapter<Carro>(LoginActivity.this,
+                android.R.layout.simple_list_item_1, acessoBD.getListCarros());//Dentro de <> está o tipo de objeto que será adicionado na lista
+        lCarro.setAdapter(carroArrayAdapter);
     }
 
     @Override

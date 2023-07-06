@@ -29,7 +29,7 @@ public class AcessoBD extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String statement = "CREATE TABLE " + TABELA_CARRO +
                 " (" + CARRO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + CARRO_NOME + " TEXT, " + CARRO_PLACA + " INT)";
+                + CARRO_NOME + " TEXT, " + CARRO_PLACA + " TEXT)";
 
 
         //"CREATE TABLE TABELA_USUARIO(USUARIO_ID INTEGER PRIMARY KEY AUTOINCREMENT, USUARIO_NOME TEXT, USUARIO_IDADE INT)";
@@ -92,7 +92,7 @@ public class AcessoBD extends SQLiteOpenHelper {
      *
      * @return List de objetos Usuario
      */
-    public List<Carro> getListaUsuarios() {//Para importar List, pode ser usado o atalho com Alt+Enter (para escolher a ação) ou Shift+Alt+Enter (para pegar o pacote sugerido pela ferramenta Android Studio). Tem que ser do pacote "java.util.List"
+    public List<Carro> getListCarros() {//Para importar List, pode ser usado o atalho com Alt+Enter (para escolher a ação) ou Shift+Alt+Enter (para pegar o pacote sugerido pela ferramenta Android Studio). Tem que ser do pacote "java.util.List"
 
         List<Carro> listaCarro = new ArrayList<>();
 
@@ -113,7 +113,7 @@ public class AcessoBD extends SQLiteOpenHelper {
                 do {
                     int carroCod = cursor.getInt(0);//A primeira coluna da tabela usuário é código
                     String carroNome = cursor.getString(1);
-                    int carroPlaca = cursor.getInt(2);
+                    String carroPlaca = cursor.getString(2);
                     //int usuarioIdade = cursor.getInt(cursor.getColumnIndex("idade"));
                     //String dataNascimentoUsuario = cursor.getString(3);
                     //Não há cursor.getBoolean. Precisa converter um int para boolean. Pode ser feito com cast, SE/ENTÃO ou operador ternário
@@ -155,4 +155,6 @@ public class AcessoBD extends SQLiteOpenHelper {
         }
 
     }
+
+
 }

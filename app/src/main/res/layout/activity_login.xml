@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.082" />
 
     <EditText
-        android:id="@+id/etNomeUsuario"
+        android:id="@+id/etNomeCarro"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="10dp"
@@ -35,33 +35,33 @@
         app:layout_constraintVertical_bias="0.142" />
 
     <EditText
-        android:id="@+id/etSenhaUsuario"
+        android:id="@+id/etPlacaCarro"
         android:layout_width="174dp"
         android:layout_height="46dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="12dp"
         android:ems="10"
-        android:hint="Senha"
+        android:hint="Placa"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNomeUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/etNomeCarro" />
 
     <Button
-        android:id="@+id/btAddUsuario"
+        android:id="@+id/btAddCarro"
         android:layout_width="171dp"
         android:layout_height="51dp"
-        android:text="adicionar usuario"
-        app:layout_constraintBottom_toTopOf="@+id/btListUsuario"
+        android:text="adicionar carro"
+        app:layout_constraintBottom_toTopOf="@+id/btListCarro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.931" />
 
     <Button
-        android:id="@+id/btListUsuario"
+        android:id="@+id/btListCarro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="lista de usuarios"
+        android:text="lista de carros"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
@@ -70,7 +70,7 @@
         app:layout_constraintVertical_bias="0.427" />
 
     <Button
-        android:id="@+id/btAtualizarUsuario"
+        android:id="@+id/btAtualizarCarro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -79,11 +79,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btListUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/btListCarro"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/etCodigoUsuario"
+        android:id="@+id/etCodigoCarro"
         android:layout_width="178dp"
         android:layout_height="44dp"
         android:layout_marginTop="156dp"
@@ -93,11 +93,11 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/etSenhaUsuario"
+        app:layout_constraintStart_toEndOf="@+id/etPlacaCarro"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lUsuario"
+        android:id="@+id/lCarro"
         android:layout_width="409dp"
         android:layout_height="244dp"
         app:layout_constraintBottom_toBottomOf="parent"
