@@ -24,7 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText etCodigoUsuario;
     ListView lUsuario;
     ArrayAdapter usuarioArrayAdapter;
-    AcessouserBD acessouserBD;
+
+    AcessoBD acessoBD;
 
 
     @SuppressLint("MissingInflatedId")
@@ -43,8 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         etCodigoUsuario = findViewById(R.id.etCodigoUsuario);
         lUsuario = findViewById(R.id.lUsuario);
 
-        acessouserBD = new AcessouserBD(LoginActivity.this);
-        mostrarUsuariosNaListView(acessouserBD);
+        acessoBD = new AcessoBD(LoginActivity.this);
+        mostrarUsuariosNaListView(acessoBD);
 
         btAddUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,8 +60,8 @@ public class LoginActivity extends AppCompatActivity {
                     usuario = new Usuario(-1,
                             etNomeUsuario.getText().toString(),
                             etSenhaUsuario.getText().toString());
-                    boolean sucesso = acessouserBD.adicionarUsuario(usuario);
-                    mostrarUsuariosNaListView(acessouserBD);
+                    boolean sucesso = acessoBD.adicionarUsuario(usuario);
+                    mostrarUsuariosNaListView(acessoBD);
                     Toast.makeText(LoginActivity.this, "Sucesso:" + sucesso, Toast.LENGTH_SHORT).show();
                 } catch (NumberFormatException e) {
                     Toast.makeText(LoginActivity.this, "Erro na conversão de uma String para int: Idade não corresponde a número!", Toast.LENGTH_LONG).show();
@@ -82,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                     //Também adicionar a variável aqui em MainActivity e associar ela ao componente com findViewById.
                     lvUsuarios.setAdapter(usuarioArrayAdapter);*/
 
-                mostrarUsuariosNaListView(acessouserBD);
+                mostrarUsuariosNaListView(acessoBD);
 
                 Toast.makeText(LoginActivity.this, "Lista de usuários preenchida com sucesso", Toast.LENGTH_SHORT).show();
 
@@ -100,9 +101,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 System.out.println("Captou click na lista!");
                 Usuario usuarioClicado = (Usuario) parent.getItemAtPosition(position);
-                boolean excluiu = acessouserBD.excluirUsuario(usuarioClicado);
+                boolean excluiu = acessoBD.excluirUsuario(usuarioClicado);
 
-                mostrarUsuariosNaListView(acessouserBD);
+                mostrarUsuariosNaListView(acessoBD);
 
                 Toast.makeText(LoginActivity.this, "Usuário excluído(" + excluiu + "):" + usuarioClicado.toString(), Toast.LENGTH_SHORT).show();
 
@@ -122,16 +123,16 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     usuario = new Usuario(Integer.parseInt(etCodigoUsuario.getText().toString()), etNomeUsuario.getText().toString(), etSenhaUsuario.getText().toString());
 
-                    boolean sucesso = AcessouserBD.atualizarUsuario(usuario);
+                    boolean sucesso = acessoBD.atualizarUsuario(usuario);
 
-                    mostrarUsuariosNaListView(acessouserBD);
+                    mostrarUsuariosNaListView(acessoBD);
                     Toast.makeText(LoginActivity.this, "Sucesso:" + sucesso, Toast.LENGTH_SHORT).show();
 
                 } catch (NumberFormatException e) {
                     Toast.makeText(LoginActivity.this, "Erro na conversão de uma String para int: Idade não corresponde a número!", Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     Toast.makeText(LoginActivity.this, "Erro na criação do usuário!", Toast.LENGTH_LONG).show();
-                    usuario = new Usuario(-1, "erro", 0);
+                    usuario = new Usuario(-1, "erro", "erro");
                 }
 
             }
@@ -140,9 +141,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void mostrarUsuariosNaListView(AcessouserBD acessouserBD) {
+    private void mostrarUsuariosNaListView(AcessoBD acessouserBD) {
         usuarioArrayAdapter = new ArrayAdapter<Usuario>(LoginActivity.this,
-                android.R.layout.simple_list_item_1, acessouserBD.getListaUsuarios());//Dentro de <> está o tipo de objeto que será adicionado na lista
+                android.R.layout.simple_list_item_1, acessoBD.getListaUsuarios());//Dentro de <> está o tipo de objeto que será adicionado na lista
         lUsuario.setAdapter(usuarioArrayAdapter);
     }
 

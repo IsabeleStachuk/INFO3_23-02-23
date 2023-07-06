@@ -2,51 +2,51 @@ package com.example.info3_23_02_23;
 
 public class Usuario {
 
-    public Usuario(int idUsuario, String nomeUsuario, String senhaUsuario) {
-        this.setIdUsuario(idUsuario);
-        this.setNomeUsuario(nomeUsuario);
-        this.setSenhaUsuario(senhaUsuario);
+    public Usuario(int idCarro, String nomeCarro, String placaCarro) {
+        this.setIdCarro(idCarro);
+        this.setNomeCarro(nomeCarro);
+        this.setPlacaCarro(placaCarro);
     }
 
-    public Usuario(String nomeUsuario, String senhaUsuario) {
-        this.nomeUsuario = nomeUsuario;
-        this.senhaUsuario = senhaUsuario;
+    public Usuario(String nomeCarro, String placaCarro) {
+        this.nomeCarro = nomeCarro;
+        this.placaCarro = placaCarro;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "idUsuario=" + idUsuario + ", nomeUsuario='" + nomeUsuario + '\'' + ", senhaUsuario=" + senhaUsuario + '}';
+        return "Usuario{" + "idCarro=" + idCarro + ", nomeCarro='" + nomeCarro + '\'' + ", placaCarro=" + placaCarro + '}';
         //"Usuario{idUsuario=1, nomeUsuario=Ronan, idadeUsuario=30}"
     }
 
-    private int idUsuario;
-    private String nomeUsuario;
-    private String senhaUsuario;
+    private int idCarro;
+    private String nomeCarro;
+    private String placaCarro;
 
 
 
-    protected int getIdUsuario() {
-        return idUsuario;
+    protected int getIdCarro() {
+        return idCarro;
     }
 
-    protected void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    protected void setIdCarro(int idUsuario) {
+        this.idCarro = idUsuario;
     }
 
-    protected String getNomeUsuario() {
-        return nomeUsuario;
+    protected String getNomeCarro() {
+        return nomeCarro;
     }
 
-    protected void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    protected void setNomeCarro(String nomeUsuario) {
+        this.nomeCarro = nomeUsuario;
     }
 
-    protected String getSenhaUsuario() {
-        return senhaUsuario;
+    protected String getPlacaCarro() {
+        return placaCarro;
     }
 
-    protected void setSenhaUsuario(String senhaUsuario) {
-        this.senhaUsuario = senhaUsuario;
+    protected void setPlacaCarro(String placaCarro) {
+        this.placaCarro = placaCarro;
     }
 
 
